@@ -68,9 +68,8 @@
       audio.play();
       key.classList.toggle('playing');
     };
-
     function removeTransition(e) {
-      if (event.propertyName !== 'transform') {
+      if (e.propertyName !== 'transform') {
         return;
       } else {
         this.classList.remove('playing')
