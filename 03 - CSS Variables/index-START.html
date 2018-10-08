@@ -32,6 +32,10 @@
       background-color: var(--base);
       filter: blur(var(--blur));
     }
+
+    .hl {
+      color: var(--base);
+    }
     /*
       misc styles, nothing to do with CSS variables
     */
@@ -54,8 +58,13 @@
     }
   </style>
   <script>
-    const inputs = document.querySelectorAll('input')
-    console.log(inputs)
+    const inputs = document.querySelectorAll('input');
+    function handleUpdate() {
+      const suffix = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate))
   </script>
 
 </body>
